@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bf8532b4-effd-45bc-a3c1-0d7877db8c20/AppServices/subscriptions/bf8532b4-effd-45bc-a3c1-0d7877db8c20/resourceGroups/VehicleTraderRG/providers/Microsoft.Web/sites/VehicleTraderPortal",
+    "appService.deploySubpath": "dist\\vehicle-trader.client"
+}

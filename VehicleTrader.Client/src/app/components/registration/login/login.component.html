@@ -1,0 +1,41 @@
+<div class="m-auto form-centered">
+    <div class="custom-form boxshadow">
+        <form [formGroup]="form" (ngSubmit)="login()">
+            <div class="login-head">
+                Login
+            </div>
+            
+            <div>
+                <input formControlName="Email" placeholder="Email*" type="email" >
+                <label *ngIf="form.controls['Email']?.touched && (form.controls['Email']?.hasError('required')
+                || form.controls['Email']?.hasError('email'))" class="error">
+                Enter valid email
+                </label>
+            </div>
+
+            <div>
+                <input formControlName="Password" placeholder="Password*" type="password" >
+                <label *ngIf="form.controls['Password']?.touched && (form.controls['Password']?.hasError('required')
+                || form.controls['Password']?.hasError('minlength') || form.controls['Password']?.hasError('maxlength'))" class="error">
+                The password must be (from 6 to 64 characters)
+                </label>
+                <label *ngIf="(form.controls['Password']?.touched || form.controls['Password']?.dirty)
+                && form.controls['Password']?.hasError('pattern')" class="error">
+                The password must contain some symbol, upper case and lower case letters and numeric value.
+                </label>
+            </div>
+
+            <button class="auth-button" type="button" id="login-btn" type="submit" [disabled]="form.invalid">
+                Login
+            </button>
+            <div class="center">
+                <a routerLink="/recover-password"
+                  id="recovery-password">Forgot your password?</a>
+                <div id="pre-register">
+                   <span>Dont have an account? </span> 
+                  <a routerLink="/registration" id="register">Sign up now</a>
+                </div>
+              </div>
+        </form>
+    </div>
+</div>

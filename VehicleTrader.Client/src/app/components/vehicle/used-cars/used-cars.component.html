@@ -1,0 +1,19 @@
+<div class="container my-5">
+    <h1 class="mb-3">Used Cars</h1>
+
+    <table class="table table-dark table-hover" *ngIf="cars && cars.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Factory</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars">
+                <td>{{ car.id }}</td>
+                <td>{{ car.factoryName }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!cars || cars.length <= 0"> No Cars Found</p>
+</div>

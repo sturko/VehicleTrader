@@ -1,0 +1,67 @@
+<div class="m-auto form-centered">
+    <div class="custom-form boxshadow">
+        <form [formGroup]="form" (ngSubmit)="register()">
+            <div class="login-head">
+                SIGN UP
+            </div>
+
+            <div>
+                <input formControlName="FirstName" placeholder="First Name*" type="text" >
+                <label *ngIf="form.controls['FirstName']?.touched && (form.controls['FirstName']?.hasError('required') 
+                || form.controls['FirstName']?.hasError('minlength') || form.controls['FirstName']?.hasError('maxlength'))" class="error">
+                The First Name must be (from 2 to 64 characters)
+                </label>
+            </div>
+
+            <div>
+                <input formControlName="LastName" placeholder="Last Name*" type="text" >
+                <label *ngIf="form.controls['LastName']?.touched && (form.controls['LastName']?.hasError('required')
+                || form.controls['LastName']?.hasError('minlength') || form.controls['LastName']?.hasError('maxlength'))" class="error">
+                The Last Name must be (from 2 to 64 characters)
+                </label>
+            </div>
+            
+            <div>
+                <input formControlName="Email" placeholder="Email*" type="email" >
+                <label *ngIf="form.controls['Email']?.touched && (form.controls['Email']?.hasError('required')
+                || form.controls['Email']?.hasError('email'))" class="error">
+                Enter valid email
+                </label>
+            </div>
+
+            <div>
+                <input formControlName="Password" placeholder="Password*" type="password" >
+                <label *ngIf="form.controls['Password']?.touched && (form.controls['Password']?.hasError('required')
+                || form.controls['Password']?.hasError('minlength') || form.controls['Password']?.hasError('maxlength'))" class="error">
+                The password must be (from 6 to 64 characters)
+                </label>
+                <label *ngIf="(form.controls['Password']?.touched || form.controls['Password']?.dirty)
+                && form.controls['Password']?.hasError('pattern')" class="error">
+                The password must contain some symbol, upper case and lower case letters and numeric value.
+                </label>
+            </div>
+            <div>
+                <input formControlName="ConfirmPassword" placeholder="Confirm Password*" type="password" >
+                <label *ngIf="form.controls['ConfirmPassword']?.touched && (form.controls['ConfirmPassword']?.hasError('required')
+                || form.controls['ConfirmPassword']?.hasError('minlength') || form.controls['ConfirmPassword']?.hasError('maxlength'))" class="error">
+                The password must be (from 6 to 64 characters)
+                </label>
+                <label *ngIf="(form.controls['ConfirmPassword']?.touched || form.controls['ConfirmPassword']?.dirty)
+                && form.controls['ConfirmPassword']?.hasError('pattern')" class="error">
+                The password must contain some symbol, upper case and lower case letters and numeric value.
+                </label>
+            </div>
+
+            <button class="auth-button" type="button" id="register-btn" type="submit" [disabled]="form.invalid">
+                SIGN UP
+            </button>
+            <div class="right">
+                <div id="back-to-login">
+                   <span>Back to 
+                        <a routerLink="/login" id="login">Login.</a>
+                   </span> 
+                </div>
+              </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+* {
+  box-sizing: border-box;
+}
+
+//Theming
+$mat-primary-scheme: (
+  100: #c5cae9,
+  500: #61699a,
+  700: #303f9f,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: #ffffff,
+    700: #ffffff
+  )
+);
+
+$mat-accent-scheme: (
+  100: #9ccbee,
+  500: #278cda,
+  700: #0078d4,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: rgba(0,0,0,0.87),
+    700: #ffffff
+  )
+);
+
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+
+$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+.light-mode {
+  @include angular-material-theme($app-light-theme);
+}
+
+$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+.dark-mode {
+  @include angular-material-theme($app-dark-theme);
+  background-color: #333;
+  color: whitesmoke;
+}
+//End Theming
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  position: relative;
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+}
+
+.form-centered {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxshadow {
+  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
+
+.custom-form {
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid #0f7ae4;
+  padding: 20px 20px;
+}
+
+.error {
+  display: flex;
+  text-align: left;
+  color: tomato;
+  font-size: 12px;
+}
+
+.auth-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+
+input {
+  border-radius: 4px;
+  margin: 8px 0px 8px 0;
+  opacity: 0.75;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+}
